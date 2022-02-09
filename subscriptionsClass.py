@@ -41,7 +41,7 @@ class subscriptions(object):
 
     def getOneSubscription(self, id):
         """
-        Exports the metadata for a single subscripion identified by its subscription ID
+        Exports the metadata for a single subscription identified by its subscription ID
 
         :param self: Inherits URL and Header variables from Roam Class
         :param id:   A string that contains the numeric ID of the subscription
@@ -53,4 +53,22 @@ class subscriptions(object):
         oneSub = requests.request("GET", url = urlOneSub, headers = self.header)
         
         return(oneSub.json())
+
         
+    def getOneSubscriptionwithRelations(self, id, relations):
+        """
+        Retrieves the metadata for a subscription and includes corresponding urls to related records
+
+        :param self: Inherits URL and header variables from Roam Class
+        :param id: A string that contains the numeric ID of the subscription
+        :param relations: A list of strings naming the relations that should be included in the response. 
+                          Relations can be any of the following: product, subscriptionPeriods, notes, links,
+                          files, licensePeriods.license.publisher, licensePeriods.licensePeriodStatus
+        """
+        relStr = ','.join([str(item) for item in relations])
+
+        urlOneSubwRel = self.url + 'subscriptions/' + id + '?include=' + relStr
+
+        oneSubwRel = requests.request("GET", url = urlOneSubwRel, headers = self.header)
+
+        return(oneSubwRel.json())

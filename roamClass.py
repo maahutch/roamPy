@@ -1,9 +1,9 @@
-
 from heartbeatClass import heartbeat
 from subscriptionsClass import subscriptions
 from subscriptionPeriodsClass import subscriptionPeriod
+from productsClass import products
 
-class Roam(heartbeat, subscriptions, subscriptionPeriod):
+class Roam(heartbeat, subscriptions, subscriptionPeriod, products):
 
     def __init__(self, url, token):
         

@@ -1,9 +1,9 @@
-import requests
 
 from heartbeatClass import heartbeat
 from subscriptionsClass import subscriptions
+from subscriptionPeriodsClass import subscriptionPeriod
 
-class Roam(heartbeat, subscriptions):
+class Roam(heartbeat, subscriptions, subscriptionPeriod):
 
     def __init__(self, url, token):
         

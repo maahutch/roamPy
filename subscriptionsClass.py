@@ -1,4 +1,5 @@
-import requests
+from requests import request
+from pageFunc import pageIterate
 
 
 class subscriptions(object):
@@ -18,26 +19,12 @@ class subscriptions(object):
         :return: Returns a list of json objects with metadata for all subsriptions. 
                  One list item for each page of 40 datasets from the endpoint
         """
-
-        result = []
         urlSubs = self.url + 'subscriptions'
-        firstPage = requests.request("GET", url = urlSubs, headers = self.header)
-        firstPage = firstPage.json()
-        next = firstPage['links']['next']
-     
-        while next != None:
+        
+        res = pageIterate(url=urlSubs, header = self.header)
 
-            page = requests.request("GET", url = next, headers = self.header)
-            page = page.json()
+        return(res)
 
-            result.append(page)
-           
-            try:
-                next = page['links']['next']
-            except: 
-                next = None
-
-        return(result)
 
     def getOneSubscription(self, id):
         """
@@ -50,7 +37,7 @@ class subscriptions(object):
 
         urlOneSub = self.url + 'subscriptions/' + id
         
-        oneSub = requests.request("GET", url = urlOneSub, headers = self.header)
+        oneSub = request("GET", url = urlOneSub, headers = self.header)
         
         return(oneSub.json())
 
@@ -69,6 +56,6 @@ class subscriptions(object):
 
         urlOneSubwRel = self.url + 'subscriptions/' + id + '?include=' + relStr
 
-        oneSubwRel = requests.request("GET", url = urlOneSubwRel, headers = self.header)
+        oneSubwRel = request("GET", url = urlOneSubwRel, headers = self.header)
 
         return(oneSubwRel.json())

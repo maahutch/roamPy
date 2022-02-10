@@ -1,4 +1,4 @@
-import requests
+from requests import request
 
 
 class heartbeat(object):
@@ -16,7 +16,7 @@ class heartbeat(object):
         :return: Returns a json object with the api status
         """
 
-        response = requests.request("GET", url = self.url, headers = self.header)
+        response = request("GET", url = self.url, headers = self.header)
         
         return(response.json())
 

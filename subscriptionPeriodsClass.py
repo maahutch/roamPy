@@ -1,4 +1,5 @@
-import requests
+from requests import request
+from pageFunc import pageIterate
 
 class subscriptionPeriod(object):
 
@@ -19,23 +20,12 @@ class subscriptionPeriod(object):
         :returns: A json object for every subscription period in the Roam.plus instance 
         """
 
-        result = []
         urlSubs = self.url + 'subscriptionPeriods'
-        firstPage = requests.request("GET", url = urlSubs, headers = self.header)
-        firstPage = firstPage.json()
-        next = firstPage['links']['next']
-        while next != None:
-            page = requests.request("GET", url = next, headers = self.header)
-            page = page.json()
+        
+        res = pageIterate(url = urlSubs, header=self.header)
 
-            result.append(page)
-           
-            try:
-                next = page['links']['next']
-            except: 
-                next = None
+        return(res)
 
-        return(result)
 
     def getSubPeriodsBefore(self, date):
         """
@@ -48,7 +38,7 @@ class subscriptionPeriod(object):
 
         urlSubsPeriodsBefore = self.url + 'subscriptionPeriods?filter[startsBefore]=' + date
 
-        subPeriodsBefore = requests.request("GET", url = urlSubsPeriodsBefore, headers=self.header)
+        subPeriodsBefore = request("GET", url = urlSubsPeriodsBefore, headers=self.header)
 
         return(subPeriodsBefore.json())
          
@@ -63,7 +53,7 @@ class subscriptionPeriod(object):
 
         urlSubsPeriodsAfter = self.url + 'subscriptionPeriods?filter[startsAfter]=' + date
 
-        subPeriodsAfter = requests.request("GET", url = urlSubsPeriodsAfter, headers=self.header)
+        subPeriodsAfter = request("GET", url = urlSubsPeriodsAfter, headers=self.header)
 
         return(subPeriodsAfter.json())
 
@@ -80,7 +70,7 @@ class subscriptionPeriod(object):
 
         urlSubsPeriodsBetween = self.url + 'subscriptionPeriods?filter[startsBetween]=' + startDate + '..' + endDate
 
-        subPeriodsBetween = requests.request("GET", url = urlSubsPeriodsBetween, headers=self.header)
+        subPeriodsBetween = request("GET", url = urlSubsPeriodsBetween, headers=self.header)
 
         return(subPeriodsBetween.json())
 
@@ -94,7 +84,7 @@ class subscriptionPeriod(object):
         """
         urlSubPeriodId = self.url + 'subscriptionPeriods/' + id
 
-        subPeriodId = requests.request("GET", url=urlSubPeriodId, headers=self.header)
+        subPeriodId = request("GET", url=urlSubPeriodId, headers=self.header)
 
         return(subPeriodId.json())
 
@@ -116,7 +106,7 @@ class subscriptionPeriod(object):
 
         urlSubPeriodIdwRel = self.url +'subscriptionPeriods/' + id + '?include=' + relStr
 
-        subPeriodidwRel = requests.request("GET", url=urlSubPeriodIdwRel, headers=self.header)
+        subPeriodidwRel = request("GET", url=urlSubPeriodIdwRel, headers=self.header)
 
         return(subPeriodidwRel.json())
 

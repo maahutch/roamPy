@@ -1,4 +1,5 @@
 from requests import request
+from pageFunc import pageIterate
 
 class products(object):
 
@@ -18,23 +19,12 @@ class products(object):
                  One list item for each page of 40 datasets from the endpoint
         """
 
-        result = []
         urlSubs = self.url + 'products'
-        firstPage = request("GET", url = urlSubs, headers = self.header)
-        firstPage = firstPage.json()
-        next = firstPage['links']['next']
-        while next != None:
-            page = request("GET", url = next, headers = self.header)
-            page = page.json()
 
-            result.append(page)
-           
-            try:
-                next = page['links']['next']
-            except: 
-                next = None
+        res = pageIterate(urlSubs, self.header)
 
-        return(result)
+        return(res)
+        
 
 
         

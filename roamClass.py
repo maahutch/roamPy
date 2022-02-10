@@ -2,8 +2,9 @@ from heartbeatClass import heartbeat
 from subscriptionsClass import subscriptions
 from subscriptionPeriodsClass import subscriptionPeriod
 from productsClass import products
+from licensesClass import licenses
 
-class Roam(heartbeat, subscriptions, subscriptionPeriod, products):
+class Roam(heartbeat, subscriptions, subscriptionPeriod, products, licenses):
 
     def __init__(self, url, token):
         

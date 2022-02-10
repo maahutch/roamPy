@@ -1,5 +1,5 @@
 from requests import request
-from pageFunc import pageIterate
+from roamPy.pageFunc import pageIterate
 
 class subscriptionPeriod(object):
 

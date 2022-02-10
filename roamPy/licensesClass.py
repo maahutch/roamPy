@@ -1,5 +1,5 @@
 
-from pageFunc import pageIterate
+from roamPy.pageFunc import pageIterate
 
 
 class license(object):

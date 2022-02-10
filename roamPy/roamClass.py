@@ -1,8 +1,8 @@
-from heartbeatClass import heartbeat
-from subscriptionsClass import subscriptions
-from subscriptionPeriodsClass import subscriptionPeriod
-from productsClass import products
-from licensesClass import license
+from roamPy.heartbeatClass import heartbeat
+from roamPy.subscriptionsClass import subscriptions
+from roamPy.subscriptionPeriodsClass import subscriptionPeriod
+from roamPy.productsClass import products
+from roamPy.licensesClass import license
 
 class Roam(heartbeat, subscriptions, subscriptionPeriod, products, license):
 

@@ -1,5 +1,5 @@
 from requests import request
-from pageFunc import pageIterate
+from roamPy.pageFunc import pageIterate
 
 
 class subscriptions(object):
@@ -42,7 +42,7 @@ class subscriptions(object):
         return(oneSub.json())
 
         
-    def getOneSubscriptionwithRelations(self, id, relations):
+    def getOneSubwithRelations(self, id, relations):
         """
         Retrieves the metadata for a subscription and includes corresponding urls to related records
 

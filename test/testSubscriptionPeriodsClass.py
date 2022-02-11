@@ -1,12 +1,13 @@
 from roamPy.roamClass import Roam
 import unittest
+import os
+
 
 class Test_subscriptionPeriods(unittest.TestCase):
 
-    with open('C:/Users/maahutch/dataIndexApi/roamKey.txt') as f: 
-        token = f.readlines()
+    token = os.environ.get('Roam_API_Key')
 
-    roam = Roam(url='https://api.roam.plus/external/', token = token[0])
+    roam = Roam(url='https://api.roam.plus/external/', token = token)
 
     def testGetAllSubPeriods(self, roam=roam):
         result = roam.getAllSubPeriods()

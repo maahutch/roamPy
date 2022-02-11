@@ -1,4 +1,4 @@
-from requests import request
+
 from roamPy.pageFunc import pageIterate
 
 class products(object):

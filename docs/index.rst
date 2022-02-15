@@ -91,7 +91,7 @@ Retreive all licenses and relations:
 
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
    :caption: Contents:
 
    source/api/Roam

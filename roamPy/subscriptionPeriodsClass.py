@@ -16,8 +16,8 @@ class subscriptionPeriod(object):
         subscription period. A subscription period relates to one subscription but
         one subscription can have multiple subscription periods: one period for each signed agreement.
 
-        :params self: Inherits url and header constructor values from the Roam class
-        :returns: A json object for every subscription period in the Roam.plus instance 
+        :param self: Inherits url and header constructor values from the Roam class
+        :return: A json object for every subscription period in the Roam.plus instance 
         """
 
         urlSubs = self.url + 'subscriptionPeriods'
@@ -31,9 +31,10 @@ class subscriptionPeriod(object):
         """
         Exports the metadata for all subscriptions periods that begin before a given date
 
-        :params self: Inherits url and header constructor values from the Roam class
-        :params date: A string containing the data before which the subscription periods
+        :param self: Inherits url and header constructor values from the Roam class
+        :param date: A string containing the data before which the subscription periods
                       should be returned. Must be fomatted 'YYYY-MM-DD'.
+        :return: Metadata for all subscription periods beginning before the given date
         """
 
         urlSubsPeriodsBefore = self.url + 'subscriptionPeriods?filter[startsBefore]=' + date
@@ -46,9 +47,10 @@ class subscriptionPeriod(object):
         """
         Exports the metadata for all subscriptions periods that begin after a given date
 
-        :params self: Inherits url and header constructor values from the Roam class
-        :params date: A string containing the data after which the subscription periods
+        :param self: Inherits url and header constructor values from the Roam class
+        :param date: A string containing the data after which the subscription periods
                       should be returned. Must be fomatted 'YYYY-MM-DD'.
+        :return: Metadata for all subscription periods beginning  after the given date
         """
 
         urlSubsPeriodsAfter = self.url + 'subscriptionPeriods?filter[startsAfter]=' + date
@@ -61,11 +63,12 @@ class subscriptionPeriod(object):
         """
         Exports the metadata for all subscriptions periods that begin between two given dates
 
-        :params self: Inherits url and header constructor values from the Roam class
-        :params startDate: A string containing the data after which the subscription periods
+        :param self: Inherits url and header constructor values from the Roam class
+        :param startDate: A string containing the data after which the subscription periods
                            should be returned. Must be fomatted 'YYYY-MM-DD'.
-        :params endDate: A string containing the data before which the subscription periods
+        :param endDate: A string containing the data before which the subscription periods
                          should be returned. Must be fomatted 'YYYY-MM-DD'.
+        :return: Metadata for all subscription periods beginning between the two dates.
         """
 
         urlSubsPeriodsBetween = self.url + 'subscriptionPeriods?filter[startsBetween]=' + startDate + '..' + endDate
@@ -79,8 +82,9 @@ class subscriptionPeriod(object):
         """
         Exports the metadata for a subscription period with a given id
 
-        :params self:  Inherits url and header constructor values from the Roam class
-        :params id:   String containing numeric identifier of a subscription period
+        :param self:  Inherits url and header constructor values from the Roam class
+        :param id:   String containing numeric identifier of a subscription period
+        :return: Metadata for the subscription with the given id number
         """
         urlSubPeriodId = self.url + 'subscriptionPeriods/' + id
 
@@ -96,10 +100,11 @@ class subscriptionPeriod(object):
         Exports metadata for a subscription period with a given id and includes URLs of related 
         objects. 
 
-        :params self: Inherits url and header constructor values from the Roam class
-        :params id:   String containing numeric identifier of a subscription period
-        :params relations: List of strings describing the realted record urls to return. 
+        :param self: Inherits url and header constructor values from the Roam class
+        :param id:   String containing numeric identifier of a subscription period
+        :param relations: List of strings describing the realted record urls to return. 
                             Can be 'products' or 'vendor' or both.
+        :return: Currently nothing as endpoint does not work yet. 
         """
 
         relStr = ','.join([str(item) for item in relations])

@@ -23,9 +23,9 @@ class Roam(heartbeat, subscriptions, subscriptionPeriod, products, license):
         """
         Returns metadata from Roam.plus when provided a complete API url. 
 
-        :params self:  Inherits URL and Headers from roamClass
-        :params userURL: A string of a complete URL for the Roam api
-        :returns: Returns the corresponding metadata associated with the
+        :param self:  Inherits URL and Headers from roamClass
+        :param userURL: A string of a complete URL for the Roam api
+        :return: Returns the corresponding metadata associated with the
                   provided endpoint. 
         """
 

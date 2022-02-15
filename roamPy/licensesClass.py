@@ -14,8 +14,8 @@ class license(object):
         Iterates through the paginated 'License' endpoint to return metadata 
         for all Licenses in the Roam instance.
 
-        :params self: Inherits URL and Header constructors from the Roam Class
-        :returns: Returns a list of json objects with metadata for all licenses. 
+        :param self: Inherits URL and Header constructors from the Roam Class
+        :return: Returns a list of json objects with metadata for all licenses. 
                   One list item for each page of 40 datasets from the endpoint
         """
 

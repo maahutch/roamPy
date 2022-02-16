@@ -23,9 +23,10 @@ How to test connection to the Roam server:
 ::
 
    from roamPy import Roam
+   import os
 
    #API Key stored as system variable
-   token = = os.environ.get('Roam_API_Key')
+   token = os.environ.get('Roam_API_Key')
 
    #Instantiate object of Roam class
    roam = Roam(url=<base url of roam instance>, token=token)
@@ -43,14 +44,6 @@ Request metadata for a given subscription using its id number:
 
 ::
 
-   from roamPy import Roam
-
-   #API Key stored as system variable
-   token = = os.environ.get('Roam_API_Key')
-
-   #Instantiate object of Roam class
-   roam = Roam(url=<base url of roam instance>, token=token)
-
    #Return Data for Subscription using ID.
    sub = roam.getOneSubscription(id = 'id number')
 
@@ -60,14 +53,6 @@ Retreive data for all subscription periods between two dates:
 
 ::
 
-   from roamPy import Roam
-
-   #API Key stored as system variable
-   token = = os.environ.get('Roam_API_Key')
-
-   #Instantiate object of Roam class
-   roam = Roam(url=<base url of roam instance>, token=token)
-
    allSPBetween = roam.getSubscriptionPeriodsBetween(startDate='2020-01-01', endDate='2021-01-01')
 
    print(allSPBetween)
@@ -75,14 +60,6 @@ Retreive data for all subscription periods between two dates:
 Retreive all licenses and relations:
 
 ::
-
-   from roamPy import Roam
-
-   #API Key stored as system variable
-   token = = os.environ.get('Roam_API_Key')
-
-   #Instantiate object of Roam class
-   roam = Roam(url=<base url of roam instance>, token=token)
 
    licRel = roam.getLicenseswRels(['licensePeriods', 'publisher'])
 

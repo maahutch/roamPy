@@ -12,9 +12,10 @@ Full focumentaion can be found here: [roampy.readthedocs.io](https://roampy.read
 How to test connection to the Roam server: 
 ```
 from roamPy import Roam
+import os
 
 #API Key stored as system variable
-token = = os.environ.get('Roam_API_Key')
+token = os.environ.get('Roam_API_Key')
 
 #Instantiate object of Roam class
 roam = Roam(url=<base url of roam instance>, token=token)

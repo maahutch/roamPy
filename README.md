@@ -2,7 +2,7 @@
 A python library of API wrapper functions to retrieve data from the [roam.plus](https://roam.plus) platform. Includes the 
 `Roam` python class which has one method corresponding to each API endpoint including, Subscriptions, SubscriptionPeriods, Products and Licenses. 
 
-Full focumentaion can be found here: [roampy.readthedocs.io](https://roampy.readthedocs.io)
+Full documentaion can be found here: [roampy.readthedocs.io](https://roampy.readthedocs.io)
 
 ## Installation
 

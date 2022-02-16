@@ -1,1 +1,1 @@
-from roamPy.roamClass import *
+from roamPy import *
